@@ -1,5 +1,3 @@
-/* Reset some default browser styles */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,7 +17,7 @@ h2 {
 }
 
 section {
-  background: white;
+  background: linear-gradient(to bottom right, white 70%, #bfbfbf);
   border-radius: 8px;
   padding: 20px;
   margin: 20px auto;
@@ -56,6 +54,10 @@ select:focus {
   outline: none;
 }
 
+input:placeholder-shown {
+  color: black;
+}
+
 button {
   padding: 10px;
   border: none;
@@ -87,7 +89,7 @@ button:hover {
   border-radius: 5px;
   padding: 15px;
   margin: 10px;
-  width: calc(33.333% - 20px);
+  width: calc(33% - 20px);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -113,19 +115,36 @@ button {
   margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-  .movie-card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 480px) {
-  .movie-card {
-    width: calc(100% - 20px);
-  }
-}
-
 .movie-lists {
   display: flex;
   flex-direction: row;
+}
+
+.account {
+  display: flex;
+  align-self: self-start;
+  margin: 30px;
+  background-color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 30px;
+  border: #0056b3 1px solid;
+  transition: background-color 0.3s;
+  width: 120px;
+}
+
+.account:hover {
+  background-color: #00ff33;
+  border: none;
+  color: white;
+}
+
+.account a {
+  color: #0056b3;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+account a:hover {
+  color: white;
 }

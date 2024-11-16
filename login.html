@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Movie Library</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="login-container">
+
+        <div class="info">
+            <h1>Log in and have a fun!</h1>
+            <h2>Don't have an account?</h2>
+            <a href="register.html">Sign Up</a>
+        </div>
+
+
+        <section id="login">
+            <h2>Log In</h2>
+
+            <form id="loginForm">
+                <p>
+                    Log in and use your movie library
+                </p>
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" name="username" required />
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required />
+                <button type="button" onclick="loginUser()">Log In</button>
+            </form>
+            <div id="errorMessage"></div>
+
+
+            <script src="script.js"></script>
+</body>
+
+</html>

@@ -12,40 +12,25 @@
   </head>
 
   <body>
-    <section id="register">
-      <h2>Register</h2>
-      <form id="registerForm">
-        <label for="regUsername">Username</label>
-        <input type="text" id="regUsername" name="username" required />
-        <label for="regPassword">Password</label>
-        <input type="password" id="regPassword" name="password" required />
-        <button type="button" onclick="registerUser ()">Register</button>
-      </form>
-      <div id="errorMessage" style="color: red"></div>
-    </section>
-
-    <section id="login" style="display: none">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <label for="loginUsername">Username</label>
-        <input type="text" id="loginUsername" name="username" required />
-        <label for="loginPassword">Password</label>
-        <input type="password" id="loginPassword" name="password" required />
-        <button type="button" onclick="loginUser ()">Login</button>
-      </form>
-    </section>
-
-    <section id="movielibrary" style="display: none">
+    <div class="account">
+      <a href="login.html">Log out</a>
+    </div>
+    <section id="movielibrary">
       <h2>Your Movie Library</h2>
       <form id="addMovieForm">
         <input type="text" id="movieTitle" placeholder="Movie Title" required />
-        <input type="text" id="movieGenre" placeholder="Genre" required />
+        <select id="movieGenre">
+          <option value="action">Action</option>
+          <option value="comedy">Comedy</option>
+          <option value="drama">Drama</option>
+          <option value="fantasy">Fantasy</option>
+        </select>
         <input
           type="number"
           id="movieRating"
           placeholder="Rating (1-5)"
           min="1"
-          max="5"
+          max
           required
         />
         <button type="button" onclick="addMovie()">Add Movie</button>
@@ -54,15 +39,14 @@
         <label for="genreFilter">Filter by Genre:</label>
         <select id="genreFilter" onchange="filterMovies()">
           <option value="">All Genres</option>
-          <option value="Action">Action</option>
-          <option value="Drama">Drama</option>
-          <option value="Comedy">Comedy</option>
-          <!-- Add more genres as needed -->
+          <option value="action">Action</option>
+          <option value="comedy">Comedy</option>
+          <option value="drama">Drama</option>
+          <option value="fantasy">Fantasy</option>
         </select>
       </div>
       <div class="movies">
         <div class="movie-lists">
-          <!-- Sample Movie Card 1 -->
           <div class="movie-card">
             <h3>Deadpool and Wolverine 3</h3>
             <p>Genre: Action</p>
@@ -71,8 +55,6 @@
             <button onclick="editMovie(1)">Edit</button>
             <button onclick="deleteMovie(1)">Delete</button>
           </div>
-
-          <!-- Sample Movie Card 2 -->
           <div class="movie-card">
             <h3>SHREK 3</h3>
             <p>Genre: Comedy</p>
@@ -81,15 +63,13 @@
             <button onclick="editMovie(2)">Edit</button>
             <button onclick="deleteMovie(2)">Delete</button>
           </div>
-
-          <!-- Sample Movie Card 3 -->
           <div class="movie-card">
             <h3>Dogs life</h3>
             <p>Genre: Drama</p>
             <p>Rating: ★★★★☆</p>
-            <button onclick="markAsWatched(3)">Mark as Watched</button>
-            <button onclick="editMovie(3)">Edit</button>
-            <button onclick="deleteMovie(3)">Delete</button>
+            <button onclick="markAsWatched()">Mark as Watched</button>
+            <button onclick="editMovie()">Edit</button>
+            <button onclick="deleteMovie()">Delete</button>
           </div>
         </div>
       </div>

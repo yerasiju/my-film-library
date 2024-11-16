@@ -16,8 +16,9 @@ async function registerUser() {
       console.log("User registered successfully");
       document.getElementById("errorMessage").innerText =
         "Registration successful! You can now log in.";
-      document.getElementById("login").style.display = "block";
-      document.getElementById("register").style.display = "none";
+      window.location.href = "login.html";
+    } else if (username && password == "") {
+      alert("Please fill in both fields");
     } else {
       alert("Failed to register user. Please try again.");
     }
@@ -42,8 +43,11 @@ async function loginUser() {
     if (user) {
       localStorage.setItem("userId", user.id);
       alert("User logged in sucesfuly");
-      document.getElementById("movielibrary").style.display = "block";
+      window.location.href = "index.html";
+
       fetchUserMovies();
+    } else if (username && password == "") {
+      alert("Please fill in both fields");
     } else {
       alert("Invalid username or password");
     }
@@ -66,7 +70,7 @@ async function fetchUserMovies() {
     const movies = await response.json();
     displayMovies(movies);
   } catch (error) {
-    alert("Error fetching movies: " + error);
+    console.log("Error fetching movies: " + error);
   }
 }
 
@@ -206,4 +210,32 @@ function filterMovies() {
       card.style.display = "none";
     }
   });
+}
+
+async function editMovie(movieId) {
+  const title = prompt("Enter new title:");
+  const genre = prompt("Enter new genre:");
+  const rating = prompt("Enter new rating (1-5):");
+
+  if (!validateMovieInput(title, genre, rating)) return;
+
+  try {
+    const response = await fetch(
+      `https://673469dba042ab85d11a0d3b.mockapi.io/movies/${movieId}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, genre, rating }),
+      }
+    );
+
+    if (response.ok) {
+      console.log("Movie updated successfully");
+      fetchUserMovies();
+    } else {
+      showError("Failed to update movie");
+    }
+  } catch (error) {
+    showError("Error: " + error);
+  }
 }
