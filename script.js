@@ -1,4 +1,3 @@
-window.location.href = "login.html";
 async function registerUser() {
   const username = document.getElementById("regUsername").value;
   const password = document.getElementById("regPassword").value;
@@ -44,7 +43,7 @@ async function loginUser() {
     if (user) {
       localStorage.setItem("userId", user.id);
       alert("User logged in sucesfuly");
-      window.location.href = "index.html";
+      window.location.href = "movies.html";
 
       fetchUserMovies();
     } else if (username && password == "") {
