@@ -16,7 +16,7 @@ async function registerUser() {
       console.log("User registered successfully");
       document.getElementById("errorMessage").innerText =
         "Registration successful! You can now log in.";
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     } else if (username && password == "") {
       alert("Please fill in both fields");
     } else {
